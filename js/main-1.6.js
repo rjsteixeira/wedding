@@ -60,6 +60,7 @@ $(function() {
 	
 	var sections = $("section");
 	var navigation_links = $("#nav ul li a");
+	var play_links = $("#play a");
 	
 	sections.waypoint({
 		handler: function(event, direction) {
@@ -86,7 +87,20 @@ $(function() {
 				offset: { 'left':0, 'top':-0.08*$(window).height() }
 			}
 		);
-			event.preventDefault();
+		event.preventDefault();
+	});
+	play_links.click( function(event) {
+		document.getElementById("play").style.display = 'none';
+		$.scrollTo(
+			$(this).attr("href"),
+			{
+				duration: 1000,
+				offset: { 'left':0, 'top':-0.08*$(window).height() }
+			}
+		);
+		event.preventDefault();
+		
+
 	});
 
     $('figure.responsive-image').picture();
